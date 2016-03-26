@@ -1,8 +1,7 @@
-default['nugetServer']['dscResources'] = ['cNuget.zip']
-default['nugetServer']['archives'] = []
-default['nugetServer']['allowPackagePush'] = true
-default['nugetServer']['allowPackageOverwrite'] = true
-default['nugetServer']['website'] = [{
+default['nuget']['modules'] = ['cNuget' => '1.2.5']
+default['nuget']['allowPackagePush'] = true
+default['nuget']['allowPackageOverwrite'] = true
+default['nuget']['website'] = [{
   'name' => 'NuGet',
   'port' => 81,
   'directory' => "#{ENV['SYSTEMDRIVE']}\\inetpub\\nuget",
@@ -11,9 +10,11 @@ default['nugetServer']['website'] = [{
   'allowPackagePush' => true,
   'allowPackageOverwrite' => true
 }]
-default['nugetServer']['repos'] = [{
+default['nuget']['repo'] = [{
   'name' => 'Napm',
-  'url' => 'http://192.168.50.11:81',
+  'publishUri' => 'http://localhost:81/nuget',
+  'sourceUri' => 'http://localhost:81',
   'apiKey' => 'c4a94e44-0fff-4bb7-aed3-80b05329fe9b',
-  'type' => 'NuGet'
+  'type' => 'NuGet',
+  'policy' => 'Trusted'
 }]
