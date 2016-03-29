@@ -6,10 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-
-
-dsc_resource 'Web-Server' do
-  resource :WindowsFeature
-  property :Name, 'Web-Server'
-  property :Ensure, 'Present'
+recipes = [
+  'nuget::bootstrap_module',
+  'nuget::nuget_server',
+  'nuget::nuget_client'
+]
+recipes.each do |recipe|
+  include_recipe recipe
 end

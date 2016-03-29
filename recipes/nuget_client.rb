@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: .
+# Cookbook Name::nuget
 # Recipe:: nuget_client
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
@@ -13,7 +13,6 @@ node['nuget']['repo'].each do |repo|
       property :Ensure, 'Present'
       property :Name, repo['name']
       property :Port, repo['port']
-      property :APIKey, repo['apikey']
       property :PublishUri, repo['publishUri']
       property :SourceUri, repo['sourceUri']
       property :InstallPolicy, repo['policy']
