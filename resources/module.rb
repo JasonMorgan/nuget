@@ -5,12 +5,12 @@ resource_name :nuget_module
 provides :nuget_module, platform: 'windows'
 
 property :name, String, name_property: true
-property :provider, String, default: 'PSGallery'
+property :pkg_provider, String, default: 'PSGallery'
 property :version, String, required: true
 property :credential, Chef::Util::Powershell::PSCredential, required: true
 
 load_current_value do
-  
+  #
 end
 
 action :install do
@@ -18,7 +18,7 @@ action :install do
     resource :Nuget_Module
     property :Ensure, 'Present'
     property :Name, name
-    property :ProviderName, provider
+    property :ProviderName, pkg_provider
     property :Version, version
     property :PSDscRunAsCredential, credential
   end
@@ -29,7 +29,7 @@ action :uninstall do
     resource :Nuget_Module
     property :Ensure, 'Absent'
     property :Name, name
-    property :ProviderName, provider
+    property :ProviderName, pkg_provider
     property :Version, version
     property :PSDscRunAsCredential, credential
   end

@@ -8,6 +8,6 @@ nuget_module 'ISESteroids' do
   name 'ISESteroids'
   version '2.3.0.64'
   credential cred
-  provider 'PSGallery'
+  pkg_provider 'PSGallery'
   action :install
 end

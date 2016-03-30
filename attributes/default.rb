@@ -6,6 +6,11 @@ default['nuget']['modules'] = [
   }
 ]
 
+default['nuget']['account'] = {
+  'name' => 'vagrant',
+  'password' => 'vagrant'
+}
+
 default['nuget']['website'] = [
   {
     'name' => 'Packages',
