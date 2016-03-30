@@ -8,9 +8,9 @@
 #
 recipes = [
   'nuget::bootstrap_module',
-  'nuget::nuget_server',
-  'nuget::nuget_client'
+  'nuget::install_module'
 ]
+
 recipes.each do |recipe|
   include_recipe recipe
 end

@@ -1,8 +1,10 @@
-default['nuget']['modules'] = [{
-  'name' => 'cNuget',
-  'version' => '1.3.0',
-  'source' => 'PSGallery'
-}]
+default['nuget']['modules'] = [
+  {
+    'name' => 'Nuget',
+    'version' => '1.3.1',
+    'source' => 'PSGallery'
+  }
+]
 
 default['nuget']['website'] = [
   {
