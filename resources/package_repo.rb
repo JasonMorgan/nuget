@@ -1,31 +1,33 @@
+resource_name :nuget_package_repo
 
-resource_name :nuget_module
-
-provides :nuget_module, platform: 'windows'
+provides :nuget_package_repo, platform: 'windows'
 
 property :name, String, name_property: true
-property :pkg_provider, String, default: 'PSGallery'
-property :version, String, required: true
+property :pkg_provider, String, default: 'Chocolatey'
 property :credential, Chef::Util::Powershell::PSCredential, required: true
+property :source_uri, String, default: 'http://chocolatey.org/api/v2/'
+property :install_policy, String, default: 'Trusted'
 
 action :install do
   dsc_resource name do
-    resource :Nuget_Module
+    resource :PackageRepo
     property :Ensure, 'Present'
     property :Name, name
     property :ProviderName, pkg_provider
-    property :Version, version
+    property :SourceUri, source_uri
+    property :installPolicy, install_policy
     property :PSDscRunAsCredential, credential
   end
 end
 
 action :uninstall do
   dsc_resource name do
-    resource :Nuget_Module
+    resource :PackageRepo
     property :Ensure, 'Absent'
     property :Name, name
     property :ProviderName, pkg_provider
-    property :Version, version
+    property :SourceUri, source_uri
+    property :installPolicy, install_policy
     property :PSDscRunAsCredential, credential
   end
 end
