@@ -9,12 +9,12 @@ dsc_resource 'bootstrap' do
   module_name 'PSDesiredStateConfiguration'
   property :GetScript, '@{}'
   property :SetScript, <<-CODE
-    Set-PackageSource -Name #{node['nuget']['modules'][0]['source']} -Trusted -ForceBootstrap
-    Install-Module -Name #{node['nuget']['modules'][0]['name']} -RequiredVersion #{node['nuget']['modules'][0]['version']} -Force -Repository #{node['nuget']['modules'][0]['source']}
+    Set-PackageSource -Name #{node['nuget']['module']['source']} -Trusted -ForceBootstrap
+    Install-Module -Name #{node['nuget']['module']['name']} -RequiredVersion #{node['nuget']['module']['version']} -Force -Repository #{node['nuget']['module']['source']}
   CODE
   property :TestScript, <<-CODE
-    $mod = Get-Module -Name #{node['nuget']['modules'][0]['name']} -ListAvailable -ErrorAction SilentlyContinue
-    if ( ($mod -ne $null) -and ($mod.Version -ge [version](#{node['nuget']['modules'][0]['version']})) ) {
+    $mod = Get-Module -Name #{node['nuget']['module']['name']} -ListAvailable -ErrorAction SilentlyContinue
+    if ( ($mod -ne $null) -and ($mod.Version -ge [version](#{node['nuget']['module']['version']})) ) {
       return $true
     }
     return $false

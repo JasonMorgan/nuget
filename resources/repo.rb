@@ -1,5 +1,7 @@
 resource_name :nuget_repo
 
+default_action :install
+
 provides :nuget_repo, platform: 'windows'
 
 property :name, String, name_property: true
@@ -10,13 +12,13 @@ property :allow_package_push, [TrueClass, FalseClass], default: true
 property :allow_package_overwrite, [TrueClass, FalseClass], default: true
 
 action :install do
-  dsc_resource name do
+  dsc_resource new_resource.name do
     resource :Nuget
-    property :Name, name
-    property :PackageSource, package_source
-    property :Port, port
-    property :APIKey, api_key
-    property :AllowNugetPackagePush, allow_package_push
-    property :AllowPackageOverwrite, allow_package_overwrite
+    property :Name, new_resource.name
+    property :PackageSource, new_resource.package_source
+    property :Port, new_resource.port
+    property :APIKey, new_resource.api_key
+    property :AllowNugetPackagePush, new_resource.allow_package_push
+    property :AllowPackageOverwrite, new_resource.allow_package_overwrite
   end
 end

@@ -1,20 +1,21 @@
 ---
-driver:
-  name: vagrant
-
 provisioner:
   name: chef_solo
 
 platforms:
   - name: windows-2012r2
     driver:
-      box: VzISD/Windows2012R2
+      port: 5985
+      box: jason/Windows2012R2
       customize:
         memory: 2048
 
 suites:
   - name: server
+    os_type: windows
+    shell_type: powershell
     driver:
+      winrm_transport: :plaintext
       network:
         - ["private_network", {ip: "192.168.50.11"}]
     run_list:

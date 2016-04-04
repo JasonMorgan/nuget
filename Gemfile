@@ -14,5 +14,8 @@ gem 'berkshelf'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
-gem "test-kitchen"
+gem "test-kitchen", "~>1.7.1"
+gem "winrm-fs", "~>0.4.0"
+#gem 'winrm-transport'
 gem "kitchen-vagrant"
+gem 'pry'

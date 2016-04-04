@@ -7,8 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 recipes = [
-  'nuget::bootstrap_module',
-  'nuget::install_module'
+  'nuget::bootstrap_module'
 ]
 
 recipes.each do |recipe|
