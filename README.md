@@ -1,4 +1,4 @@
-nugetServer Cookbook
+nuget Cookbook
 ====================
 Cookbook to create a nuget server and to configure the windows package manager.
 
