@@ -19,5 +19,5 @@ suites:
       network:
         - ["private_network", {ip: "192.168.50.11"}]
     run_list:
-      - recipe[nuget::default]
+      - recipe[nuget_dsc::default]
     attributes:

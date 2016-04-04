@@ -1,9 +1,9 @@
 
-resource_name :nuget_module
+resource_name :nuget_dsc_module
 
 default_action :install
 
-provides :nuget_module, platform: 'windows'
+provides :nuget_dsc_module, platform: 'windows'
 
 property :name, String, name_property: true
 property :pkg_provider, String, default: 'PSGallery'

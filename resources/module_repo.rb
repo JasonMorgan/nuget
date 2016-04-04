@@ -1,8 +1,8 @@
-resource_name :nuget_module_repo
+resource_name :nuget_dsc_module_repo
 
 default_action :install
 
-provides :nuget_module_repo, platform: 'windows'
+provides :nuget_dsc_module_repo, platform: 'windows'
 
 property :name, String, name_property: true
 property :credential, Chef::Util::Powershell::PSCredential, required: true

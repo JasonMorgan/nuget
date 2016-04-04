@@ -1,8 +1,8 @@
-resource_name :nuget_package_repo
+resource_name :nuget_dsc_package_repo
 
 default_action :install
 
-provides :nuget_package_repo, platform: 'windows'
+provides :nuget_dsc_package_repo, platform: 'windows'
 
 property :name, String, name_property: true
 property :pkg_provider, String, default: 'Chocolatey'

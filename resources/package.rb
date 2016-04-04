@@ -1,8 +1,8 @@
-resource_name :nuget_package
+resource_name :nuget_dsc_package
 
 default_action :install
 
-provides :nuget_package, platform: 'windows'
+provides :nuget_dsc_package, platform: 'windows'
 
 property :name, String, name_property: true
 property :pkg_provider, String, default: 'nuget'

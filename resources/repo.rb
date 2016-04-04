@@ -1,8 +1,8 @@
-resource_name :nuget_repo
+resource_name :nuget_dsc_repo
 
 default_action :install
 
-provides :nuget_repo, platform: 'windows'
+provides :nuget_dsc_repo, platform: 'windows'
 
 property :name, String, name_property: true
 property :package_source, String, required: true

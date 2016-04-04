@@ -1,10 +1,10 @@
-default['nuget']['module'] = {
+default['nuget_dsc']['module'] = {
   'name' => 'Nuget',
   'version' => '1.3.1',
   'source' => 'PSGallery'
 }
 
-default['nuget']['account'] = {
+default['nuget_dsc']['account'] = {
   'name' => 'vagrant',
   'password' => 'vagrant'
 }

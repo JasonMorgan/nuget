@@ -1,4 +1,4 @@
-nuget Cookbook
+nuget_dsc Cookbook
 ====================
 Cookbook to create a nuget server and to configure the windows package manager.
 
@@ -12,7 +12,7 @@ Attributes
 ----------
 
 e.g.
-#### nugetServer::default
+#### nuget_dsc::default
 <table>
   <tr>
     <th>Key</th>
@@ -21,31 +21,31 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['nuget']['module']['name']</tt></td>
+    <td><tt>['nuget_dsc']['module']['name']</tt></td>
     <td>string</td>
     <td>Name of the module to install</td>
     <td><tt>Nuget</tt></td>
   </tr>
   <tr>
-    <td><tt>['nuget']['module']['version']</tt></td>
+    <td><tt>['nuget_dsc']['module']['version']</tt></td>
     <td>string</td>
     <td>The module </td>
     <td><tt>1.3.1</tt></td>
   </tr>
   <tr>
-    <td><tt>['nuget']['module']['source']</tt></td>
+    <td><tt>['nuget_dsc']['module']['source']</tt></td>
     <td>string</td>
     <td>Name of the package source</td>
     <td><tt>PSGallery</tt></td>
   </tr>
   <tr>
-    <td><tt>['nuget']['account']['name']</tt></td>
+    <td><tt>['nuget_dsc']['account']['name']</tt></td>
     <td>string</td>
     <td>The name of the account that will install the Nuget Module</td>
     <td><tt>vagrant</tt></td>
   </tr>
   <tr>
-    <td><tt>['nuget']['account']['password']</tt></td>
+    <td><tt>['nuget_dsc']['account']['password']</tt></td>
     <td>string</td>
     <td>The password of the account that will install the Nuget Module</td>
     <td><tt>vagrant</tt></td>
@@ -54,24 +54,24 @@ e.g.
 
 Usage
 -----
-#### nuget::default
+#### nuget_dsc::default
 Bootstraps the Nuget DSC Resource module.  This module is necessary for all the resouces this cookbook provides.
 
 e.g.
-Just include `nuget` in your node's `run_list`:
+Just include `nuget_dsc` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[nuget]"
+    "recipe[nuget_dsc]"
   ]
 }
 ```
 
 Resources
 ---------
-###***nuget_module***
+###***nuget_dsc_module***
 installs a module from a designated repository.
 
 ####properties:
@@ -85,13 +85,13 @@ installs a module from a designated repository.
   * uninstall 
   
 ```
-nuget_module 'name' do
+nuget_dsc_module 'name' do
   version '0.1.0'
   credential ps_credential('vagrant', 'vagrant')
 end
 ```
 
-###***nuget_package_repo***
+###***nuget_dsc_package_repo***
 registers/unregisters a package repository
 
 ####properties:
@@ -106,12 +106,12 @@ registers/unregisters a package repository
   * uninstall 
   
 ```
-nuget_package_repo 'name' do
+nuget_dsc_package_repo 'name' do
   credential ps_credential('vagrant', 'vagrant')
 end
 ```
 
-###***nuget_module_repo***
+###***nuget_dsc_module_repo***
 registers/unregisters a module repository
 
 ####properties:
@@ -127,14 +127,14 @@ registers/unregisters a module repository
   * uninstall 
   
 ```
-nuget_module_repo 'name' do
+nuget_dsc_module_repo 'name' do
   credential ps_credential('vagrant', 'vagrant')
   source_uri 'http://somehost/nuget/'
   publish_uri 'http://somehost/'
 end
 ```
 
-###nuget_package
+###nuget_dsc_package
 installs/uninstalls a nuget package
 
 ####properties:
@@ -148,13 +148,13 @@ installs/uninstalls a nuget package
   * uninstall 
 
 ```
-nuget_package 'name' do
+nuget_dsc_package 'name' do
   version '0.1.0'
   credential ps_credential('vagrant', 'vagrant')
 end
 ```
 
-###nuget_repo
+###nuget_dsc_repo
 Creates a nuget website
 
 ####properties:
@@ -169,7 +169,7 @@ Creates a nuget website
   * install - default
   * uninstall 
 ```
-nuget_repo 'name' do
+nuget_dsc_repo 'name' do
   package_source 'c:\pathtofolder'
   port 81
   api_key 'myapikey'

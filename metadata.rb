@@ -1,4 +1,4 @@
-name             'nuget'
+name             'nuget_dsc'
 maintainer       'jason morgan'
 maintainer_email 'jason.morgan@verizon.com'
 license          'All rights reserved'
