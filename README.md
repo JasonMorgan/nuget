@@ -84,7 +84,7 @@ installs a module from a designated repository.
   * install - default
   * uninstall 
   
-```
+```rb
 nuget_dsc_module 'name' do
   version '0.1.0'
   credential ps_credential('vagrant', 'vagrant')
@@ -105,7 +105,7 @@ registers/unregisters a package repository
   * install - default
   * uninstall 
   
-```
+```rb
 nuget_dsc_package_repo 'name' do
   credential ps_credential('vagrant', 'vagrant')
 end
@@ -126,7 +126,7 @@ registers/unregisters a module repository
   * install - default
   * uninstall 
   
-```
+```rb
 nuget_dsc_module_repo 'name' do
   credential ps_credential('vagrant', 'vagrant')
   source_uri 'http://somehost/nuget/'
@@ -147,7 +147,7 @@ installs/uninstalls a nuget package
   * install - default
   * uninstall 
 
-```
+```rb
 nuget_dsc_package 'name' do
   version '0.1.0'
   credential ps_credential('vagrant', 'vagrant')
@@ -168,7 +168,7 @@ Creates a nuget website
 ####actions:
   * install - default
   * uninstall 
-```
+```rb
 nuget_dsc_repo 'name' do
   package_source 'c:\pathtofolder'
   port 81

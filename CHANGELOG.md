@@ -15,6 +15,10 @@ This file is used to list changes made in each version of the nugetServer cookbo
 -------
 - [jasonmorgan] - totally refactored and changed it so it instead provides resources
 
+1.0.8
+-----
+- [jasonmorgan] - removed hardcoded account
+
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 

@@ -3,7 +3,7 @@
 # Recipe:: install_module
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
-cred = ps_credential('vagrant', 'vagrant')
+cred = ps_credential(node['nuget_dsc']['account']['name'], node['nuget_dsc']['account']['password'])
 nuget_dsc_module 'ISESteroids' do
   name 'ISESteroids'
   version '2.3.0.64'
