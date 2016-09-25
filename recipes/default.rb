@@ -6,7 +6,18 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+include_recipe 'chef_handler'
+
+chef_handler 'Chef::Handler::ErrorReport' do
+  source 'chef/handler/error_report'
+  action :enable
+end
+
+node.default['powershell']['installation_reboot_mode'] = 'immediate_reboot'
+
 recipes = [
+  'powershell::powershell5',
   'nuget_dsc::bootstrap_module'
 ]
 
