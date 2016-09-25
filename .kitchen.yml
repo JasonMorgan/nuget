@@ -1,17 +1,23 @@
 ---
+driver:
+  name: vagrant
+  
 provisioner:
   name: chef_solo
 
+transport:
+  name: winrm
+  elevated: true
+
 platforms:
   - name: windows-2012r2
-    driver:
-      port: 5985
-      box: jason/Windows2012R2
+    driver_config:
+      box: mwrock/Windows2012R2
       customize:
         memory: 2048
 
 suites:
-  - name: server
+  - name: default
     os_type: windows
     shell_type: powershell
     driver:
