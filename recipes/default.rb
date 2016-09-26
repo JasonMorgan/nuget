@@ -18,7 +18,8 @@ node.default['powershell']['installation_reboot_mode'] = 'immediate_reboot'
 
 recipes = [
   'powershell::powershell5',
-  'nuget_dsc::bootstrap_module'
+  'nuget_dsc::bootstrap_module',
+  'nuget_dsc::install_module'
 ]
 
 recipes.each do |recipe|
