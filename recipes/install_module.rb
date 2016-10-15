@@ -6,8 +6,13 @@
 cred = ps_credential(node['nuget_dsc']['account']['name'], node['nuget_dsc']['account']['password'])
 nuget_dsc_module 'ISESteroids' do
   name 'ISESteroids'
-  version '2.3.0.64'
   credential cred
+  pkg_provider 'PSGallery'
+  action :install
+end
+
+nuget_dsc_module 'Pester' do
+  name 'Pester'
   pkg_provider 'PSGallery'
   action :install
 end
@@ -25,8 +30,6 @@ end
 nuget_dsc_package 'git' do
   name 'git'
   pkg_provider 'chocolatey'
-  version '2.8.0'
-  credential cred
   action :install
 end
 

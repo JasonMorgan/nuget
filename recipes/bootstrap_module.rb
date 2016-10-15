@@ -10,7 +10,7 @@ dsc_resource 'bootstrap' do
   property :GetScript, '@{}'
   property :SetScript, <<-CODE
     Set-PackageSource -Name #{node['nuget_dsc']['module']['source']} -Trusted -ForceBootstrap
-    Install-Module -Name #{node['nuget_dsc']['module']['name']} -RequiredVersion #{node['nuget_dsc']['module']['version']} -Force -Repository #{node['nuget_dsc']['module']['source']}
+    Install-Module -Name #{node['nuget_dsc']['module']['name']} -MinimumVersion #{node['nuget_dsc']['module']['version']} -Force -Repository #{node['nuget_dsc']['module']['source']}
   CODE
   property :TestScript, <<-CODE
     $mod = Get-Module -Name #{node['nuget_dsc']['module']['name']} -ListAvailable -ErrorAction SilentlyContinue

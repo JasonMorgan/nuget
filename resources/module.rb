@@ -7,8 +7,8 @@ provides :nuget_dsc_module, platform: 'windows'
 
 property :name, String, name_property: true
 property :pkg_provider, String, default: 'PSGallery'
-property :version, String, required: true
-property :credential, Chef::Util::Powershell::PSCredential, required: true
+property :version, String
+property :credential, Chef::Util::Powershell::PSCredential
 
 action :install do
   dsc_resource new_resource.name do
@@ -16,8 +16,8 @@ action :install do
     property :Ensure, 'Present'
     property :Name, new_resource.name
     property :ProviderName, new_resource.pkg_provider
-    property :Version, new_resource.version
-    property :PSDscRunAsCredential, new_resource.credential
+    property :Version, new_resource.version if new_resource.version
+    property :PSDscRunAsCredential, new_resource.credential if new_resource.credential
   end
 end
 
@@ -27,7 +27,7 @@ action :uninstall do
     property :Ensure, 'Absent'
     property :Name, new_resource.name
     property :ProviderName, new_resource.pkg_provider
-    property :Version, new_resource.version
-    property :PSDscRunAsCredential, new_resource.credential
+    property :Version, new_resource.version if new_resource.version
+    property :PSDscRunAsCredential, new_resource.credential if new_resource.credential
   end
 end

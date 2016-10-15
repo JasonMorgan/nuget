@@ -2,5 +2,5 @@ source 'https://supermarket.chef.io'
 
 metadata
 
-cookbook 'powershell'
+cookbook 'powershell', path: '~/cookbooks/powershell'
 cookbook 'windows'
