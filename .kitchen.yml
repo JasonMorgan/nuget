@@ -9,6 +9,9 @@ transport:
   name: winrm
   elevated: true
 
+verifier:
+  name: pester
+
 platforms:
   - name: windows-2012r2
     driver_config:
@@ -22,8 +25,6 @@ suites:
     shell_type: powershell
     driver:
       winrm_transport: :plaintext
-      network:
-        - ["private_network", {ip: "192.168.50.11"}]
     run_list:
       - recipe[nuget_dsc::default]
     attributes:

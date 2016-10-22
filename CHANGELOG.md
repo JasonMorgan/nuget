@@ -19,6 +19,14 @@ This file is used to list changes made in each version of the nugetServer cookbo
 -----
 - [jasonmorgan] - removed hardcoded account
 
+1.0.9
+-----
+- [jasonmorgan] - removed requirements for version and credential
+
+1.0.10
+------
+- [jasonmorgan] - updated version constraint on powershell cookbook
+
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 
