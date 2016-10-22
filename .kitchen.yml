@@ -27,4 +27,5 @@ suites:
       winrm_transport: :plaintext
     run_list:
       - recipe[nuget_dsc::default]
+      - recipe[nuget_dsc::install_module]
     attributes:
